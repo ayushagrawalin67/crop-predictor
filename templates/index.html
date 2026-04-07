@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Prediction ML API</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: url("https://images.unsplash.com/photo-1500595046743-ddf4d3d753fd") no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background: #f1f1f1;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            background: #e0f7e9;
+            border: 1px solid #2ecc71;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #27ae60, #1e8449);
+        }
+
+        #prediction {
+            margin-top: 20px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🌱 Crop Prediction</h1>
+
+    <form action="/predict" method="post">
+        <input type="text" name="Nitrogen" placeholder="Nitrogen" required>
+        <input type="text" name="Phosphorus" placeholder="Phosphorus" required>
+        <input type="text" name="Potassium" placeholder="Potassium" required>
+        <input type="text" name="Temperature" placeholder="Temperature" required>
+        <input type="text" name="Humidity" placeholder="Humidity" required>
+        <input type="text" name="pH" placeholder="pH" required>
+        <input type="text" name="Rainfall" placeholder="Rainfall" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h2 id="prediction">{{ prediction_text }}</h2>
+</div>
+
+</body>
+</html>

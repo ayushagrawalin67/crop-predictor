@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; display: flex; justify-content: center; padding-top: 50px; }
+        .card { background: white; width: 90%; max-width: 600px; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
+        h1 { font-size: 2.2rem; margin-bottom: 20px; }
+        .crop-name { color: #2e7d32; }
+        .info-panel { background-color: #e8f5e9; padding: 25px; border-radius: 15px; margin: 30px 0; }
+        .info-panel p { margin: 10px 0; font-size: 1.1rem; font-weight: 500; }
+
+        .single-image-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .single-image-container img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background-color: #eee;
+        }
+
+        .back-link { display: inline-block; margin-top: 30px; color: #673ab7; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Recommended Crop: <span class="crop-name">{{ crop }}</span></h1>
+
+        <div class="info-panel">
+            <p><strong>Ideal Season:</strong> {{ info.season }}</p>
+            <p><strong>Soil Type:</strong> {{ info.soil }}</p>
+            <p><strong>Water Requirement:</strong> {{ info.water }}</p>
+        </div>
+
+        <h3>Visual Reference</h3>
+
+        <div class="single-image-container">
+            <img src="{{ image }}" alt="{{ crop }}" onerror="this.src='https://via.placeholder.com/600x400?text=Image+Not+Found'">
+        </div>
+
+        <a href="/" class="back-link">Try another prediction</a>
+    </div>
+</body>
+</html>
